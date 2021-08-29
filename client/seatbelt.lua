@@ -239,12 +239,12 @@ AddEventHandler("seatbelt:client:ToggleSeatbelt", function(toggle)
 end)
 
 function ToggleHarness(toggle)
-    harnessOn = toggle
-    seatbeltOn = false
-    if toggle then
-        TriggerEvent("seatbelt:client:ToggleSeatbelt", true)
+    if toggle == nil then
+        harnessOn = not harnessOn
+        TriggerEvent("seatbelt:client:ToggleSeatbelt", harnessOn)
     else
-        TriggerEvent("seatbelt:client:ToggleSeatbelt", false)
+        harnessOn = toggle
+        TriggerEvent("seatbelt:client:ToggleSeatbelt", toggle)
     end
 end
 
